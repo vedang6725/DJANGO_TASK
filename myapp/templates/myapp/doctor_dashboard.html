@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?healthcare,technology') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            margin-top: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+        .profile-picture {
+            display: block;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .card-text {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .info-group {
+            margin-bottom: 20px;
+        }
+        .info-label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        .container {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Doctor Dashboard</h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                        <h5 class="card-title">Welcome, Dr {{ user.username }}!</h5>
+                        <div class="info-group">
+                            <p class="card-text"><span class="info-label">First Name:</span> {{ user.first_name }}</p>
+                            <p class="card-text"><span class="info-label">Last Name:</span> {{ user.last_name }}</p>
+                            <p class="card-text"><span class="info-label">Email:</span> {{ user.email }}</p>
+                            <p class="card-text"><span class="info-label">Address:</span> {{ user.doctor.address_line1 }}, {{ user.doctor.city }}, {{ user.doctor.state }}, {{ user.doctor.pincode }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

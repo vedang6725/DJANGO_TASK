@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?abstract,technology') no-repeat center center fixed;
+            background-size: cover;
+            color: #0e0606;
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            margin-top: 100px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+        .card-header {
+            background-color: #17a2b8;
+            color: white;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .btn-primary {
+            background-color: #17a2b8;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .btn-primary:hover {
+            background-color: #138496;
+        }
+        .link {
+            color: #17a2b8;
+        }
+        .link:hover {
+            color: #138496;
+        }
+        .container {
+            padding-top: 50px;
+        }
+        .text-danger {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Login</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="form-group">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    <div class="text-danger">{{ field.errors }}</div>
+                                </div>
+                            {% endfor %}
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <a href="{% url 'signup' %}" class="link">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
